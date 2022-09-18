@@ -1,7 +1,6 @@
 import {createStore} from "redux"
+import index from './reducers/index'
 
-const store = createStore(()=>{
-    return 100
-})
+const store = createStore(index)
 
 export default store
