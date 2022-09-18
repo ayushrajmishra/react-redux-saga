@@ -6,7 +6,7 @@ const cartData = (data=[],action) => {
     
     if(action.type === ADD_TO_CART){
         console.log("action from reducer")
-        return data;
+        return [action.data,...data];
     }
     return data;
 }
