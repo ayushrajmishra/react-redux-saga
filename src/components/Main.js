@@ -1,6 +1,8 @@
 import React from 'react';
 import '../App.css';
-import addToCart from '../services/actions/action';
+import {addToCart,removeToCart,emptyCart} from '../services/actions/action';
+
+
 import { useDispatch } from 'react-redux';
 
 function Main() {
@@ -14,12 +16,25 @@ function Main() {
   const handleClick =()=>{
     dispatch(addToCart(product))
   }
+
+  const handleRemoveClick = () =>{
+    dispatch(removeToCart(product))
+  }
+
+  const handleEmptyCartClick = () =>{
+    dispatch(emptyCart())
+  }
   return (
     
     <div>     
       <button onClick={handleClick}>Add to Cart</button>
+
+      <button onClick={handleRemoveClick}>Remove to Cart</button>
+
+      <button onClick={handleEmptyCartClick}>Empty Cart</button>
     </div>
-  );
+
+      );
 }
 
 export default Main;
