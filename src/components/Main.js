@@ -3,7 +3,8 @@ import '../App.css';
 import {addToCart,removeToCart,emptyCart} from '../services/actions/action';
 
 
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { productList } from '../services/actions/productAction';
 
 function Main() {
   const dispatch = useDispatch()
@@ -24,6 +25,13 @@ function Main() {
   const handleEmptyCartClick = () =>{
     dispatch(emptyCart())
   }
+
+  const handleProductList = () => {
+    dispatch(productList())
+  }
+
+  const data = useSelector((store)=>store.productData)
+  console.log("product in maine component",data)
   return (
     
     <div>     
@@ -32,6 +40,7 @@ function Main() {
       <button onClick={handleRemoveClick}>Remove to Cart</button>
 
       <button onClick={handleEmptyCartClick}>Empty Cart</button>
+      <button onClick={handleProductList}>Get Product List</button>
     </div>
 
       );

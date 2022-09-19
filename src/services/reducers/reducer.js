@@ -9,8 +9,10 @@ const cartData = (data=[],action) => {
             return [action.data,...data]
         case REMOVE_TO_CART:
             //data.length? data.length = data.length -1  :[] 
-            data.length = data.length ? data.length = data.length -1:[]
-                return [...data]
+            
+                const newData = data.map(value => ({ ...value }));
+                newData.length = newData.length ? newData.length = newData.length -1:[]
+                return [...newData]
         case EMPTY_CART:
             data=[]    
             return data
